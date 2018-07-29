@@ -55,7 +55,9 @@ MongoClient.connect('mongodb://db-user1:db-user1@ds245971.mlab.com:45971/people-
         res.sendFile(path.join(__dirname, 'build', 'index.html'));
       });
 
-      app.listen(7000);
-      console.log('Running a GraphQL API server at localhost:4000/graphql');      
+      app.listen(process.env.PORT || 7000,()=>{
+        console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+      });
+      // console.log('Running a GraphQL API server at localhost:4000/graphql');      
     }
   )
