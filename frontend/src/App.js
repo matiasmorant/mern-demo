@@ -44,7 +44,7 @@ class App extends Component {
     }
     this.lastUpdate = 0;
   }
-  handleChange=(filters)=>{
+  makeQuery=(filters)=>{
     Object.assign(this.state, filters) // I don't want to trigger an update yet, let's wait for the results.
     let queryTime = Date.now()
     setTimeout(()=>{
@@ -57,14 +57,14 @@ class App extends Component {
     }, 500)
 
   }
-  componentDidMount=()=>{this.handleChange({})}
+  componentDidMount=()=>{this.makeQuery({})}
   render() {
     return (
       <ThemeProvider theme={theme}>
       <AppContainer>
         <SearchBar
          className="searchbar"
-         onFilterChange={this.handleChange}
+         onFilterChange={this.makeQuery}
         />
         <div className="people-container">
          {this.state.people.map((person, i)=>
