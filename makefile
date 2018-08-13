@@ -7,6 +7,7 @@ clean:
 run:
 	cd backend && gnome-terminal -e "npm start"
 	cd frontend && gnome-terminal -e "npm start"
+	cd frontend && gnome-terminal -e "npm run-script test"
 
 build: clean
 	cd frontend && npm run-script build
